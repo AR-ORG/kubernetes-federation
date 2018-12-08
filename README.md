@@ -171,7 +171,7 @@
 
 	kubectl config rename-context gke_edureka-devops-kube_us-east4-b_cluster3 cluster3
 
-	kubectl create clusterrolebinding myname-cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value core/account) --context cluster
+	kubectl create clusterrolebinding myname-cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value core/account) --context cluster3
 
 	cd ~/.kube
 
