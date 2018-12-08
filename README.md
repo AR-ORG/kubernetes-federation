@@ -48,6 +48,7 @@
 	apt-get -y install docker.io
 
 6. Start installing kubebuilder etcd kube-apiserver kube-controller and other federated binaries 
+
 	cd /root/fed/federation-v2
 	
 	./scripts/download-binaries.sh
