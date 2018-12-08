@@ -56,26 +56,43 @@
 	make sure /root/fed/federation-v2/bin is created with the below content 
 
 	root@ip-172-31-47-227:~/fed/federation-v2# ls -ltra bin
+	
 	total 516104
 	-rwxr-xr-x  1 root root 185114550 Aug 15 20:45 kube-apiserver
+
 	-rwxr-xr-x  1 root root 153774294 Aug 15 20:45 kube-controller-manager
+
 	-rwxr-xr-x  1 root root  55232898 Aug 15 20:45 kubectl
+
 	-rwxr-xr-x  1 root root  33834296 Aug 15 21:12 etcd
+
 	-rwxr-xr-x  1 root root   8024120 Aug 15 21:12 client-gen
+
 	-rwxr-xr-x  1 root root   7696396 Aug 15 21:12 conversion-gen
+
 	-rwxr-xr-x  1 root root   7707745 Aug 15 21:12 deepcopy-gen
+
 	-rwxr-xr-x  1 root root   7681057 Aug 15 21:12 defaulter-gen
+
 	-rwxr-xr-x  1 root root   7828900 Aug 15 21:12 informer-gen
+
 	-rwxr-xr-x  1 root root   7671465 Aug 15 21:12 lister-gen
+
 	-rwxr-xr-x  1 root root  13668253 Aug 15 21:12 openapi-gen
+
 	-rwxr-xr-x  1 root root  10445902 Aug 15 21:12 gen-apidocs
+
 	-rw-r--r--  1 root root   4657856 Sep 11 21:08 vendor.tar.gz
+
 	-rwxr-xr-x  1 root root  14863168 Sep 11 21:09 kubebuilder
+
 	-rwxr-xr-x  1 root root  10250976 Sep 11 21:09 kubebuilder-gen
+
 
 	Add the newly created bin folder to $PATH in .bashrc
 	
 	vi ~/.bashrc
+
 	export PATH=$PATH:/usr/lib/go-1.10/bin:/root/fed/federation-v2/bin
 
 7. Install KinD (Kubernetes in Docker) for quick cluster creation 
@@ -89,6 +106,7 @@
 	The KinD binary will be stored inside $GOBIN. verify - ls $GOBIN/kind
 
 	root@ip-172-31-47-227:~/fed/federation-v2# ls $GOBIN/kind
+
 	/root/go/bin/kind
 
 8. Create cluster on AWS using kind 
@@ -110,8 +128,11 @@
 	cd ~
 
 	root@ip-172-31-47-227:~# kubectl config get-contexts
+
 	CURRENT   NAME       CLUSTER   AUTHINFO                  NAMESPACE
+
 	*         cluster1   kind-1    kubernetes-kind-1-admin
+
         	  cluster2   kind-2    kubernetes-kind-2-admin
 
 	kubectl config view --flatten > /root/.kube/config
@@ -148,8 +169,7 @@
 
 	kubectl config rename-context gke_edureka-devops-kube_us-east4-b_cluster3 cluster3
 
-	kubectl create clusterrolebinding myname-cluster-admin-binding --clusterrole=cluster-admin \
-  --user=$(gcloud config get-value core/account) --context cluster
+	kubectl create clusterrolebinding myname-cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value core/account) --context cluster
 
 	cd ~/.kube
 
@@ -193,7 +213,9 @@
 	Below should be the same - 
 
 	    Reason:                ClusterReady
+
 	    Status:                True
+
     	    Type:                  Ready
 
 12. Lets start example (Cluster1 (AWS) and Cluster3 (GCP)) 
