@@ -2,6 +2,12 @@
 
 # Multi cloud Kubernetes Federation  AWS (KinD) + Google Kubernetes Engine (GKE) on Federation v2
 
+Pre-requisites - 
+
+a. one AWS EC2 (preferably t2.xlarge) instance to install federated control plane and kubernetes cluster using KinD
+b. EC2 instance to have gcloud CLI installed to interact with Google Cloud to create GKE cluster (This is optional as GKE can also be installed from the console ) 
+c. Atleast 20 GB storage on EC2
+
 1. apt-get update
 
 2. Install GO 
